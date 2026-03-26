@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 218 85% 30%;
+    --primary-foreground: 0 0% 100%;
+
+    --primary-dark: 220 83% 24%;
+    --primary-light: 218 72% 46%;
+
+    --secondary: 213 74% 52%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 214 100% 95%;
+    --accent-foreground: 218 85% 30%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 218 85% 30%;
+
+    --radius: 0.5rem;
+
+    --hero-wave: 213 74% 52%;
+    --section-light: 210 40% 98%;
+    --section-gray: 220 14% 96%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  h1 {
+    @apply text-4xl font-extrabold leading-[1.06] tracking-[-0.04em] text-foreground sm:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl font-bold leading-[1.12] tracking-[-0.03em] text-foreground sm:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold leading-[1.2] tracking-[-0.025em] text-foreground sm:text-[1.75rem];
+  }
+
+  p {
+    @apply text-base leading-7 text-muted-foreground;
+  }
+}
+
+@layer components {
+  .ui-section {
+    @apply py-20 sm:py-24;
+  }
+
+  .ui-section-heading {
+    @apply mb-12 text-center;
+  }
+
+  .ui-h1 {
+    @apply text-4xl font-extrabold leading-[1.06] tracking-[-0.04em] text-foreground sm:text-5xl lg:text-6xl;
+  }
+
+  .ui-h2 {
+    @apply text-3xl font-bold leading-[1.12] tracking-[-0.03em] text-foreground sm:text-4xl lg:text-5xl;
+  }
+
+  .ui-h3 {
+    @apply text-2xl font-semibold leading-[1.2] tracking-[-0.025em] text-foreground sm:text-[1.75rem];
+  }
+
+  .ui-body-lg {
+    @apply text-lg leading-8 text-muted-foreground;
+  }
+
+  .ui-body {
+    @apply text-base leading-7 text-muted-foreground;
+  }
+
+  .ui-body-sm {
+    @apply text-sm leading-6 text-muted-foreground;
+  }
+
+  .ui-caption {
+    @apply text-sm font-medium leading-5 text-muted-foreground;
+  }
+
+  .ui-card {
+    @apply rounded-2xl border border-border/70 bg-card shadow-sm;
+  }
+}
+
+@layer utilities {
+  .hero-wave-bg {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--primary)) 0%,
+      hsl(var(--secondary)) 60%,
+      hsl(var(--primary-light)) 100%
+    );
+  }
+
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--primary)) 0%,
+      hsl(var(--secondary)) 100%
+    );
+  }
+}
