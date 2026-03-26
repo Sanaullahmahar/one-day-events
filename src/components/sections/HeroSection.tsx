@@ -8,7 +8,7 @@ import heroIllustration from "@/assets/hero-illustration.png";
 const HeroSection = () => (
   <section className="relative overflow-hidden bg-card pb-0 pt-12 lg:pt-20">
     <Container className="relative z-10 text-center">
-      <h1 className="ui-h1 mb-4">
+      <h1 className="mb-[10px] h-auto overflow-hidden text-[38px] font-black leading-[1.08] text-foreground sm:h-[62px] sm:text-[50px]">
         <RotatingText words={heroRotatingWords} className="text-primary" /> Insurance
       </h1>
       <p className="ui-body-lg mb-8">{HERO.subheading}</p>

@@ -19,8 +19,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Poppins", "sans-serif"],
-        body: ["Open Sans", "sans-serif"],
+        heading: ["Nunito Sans", "sans-serif"],
+        body: ["Nunito Sans", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

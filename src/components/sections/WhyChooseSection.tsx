@@ -1,11 +1,12 @@
 import Container from "@/components/layout/Container";
-import SectionHeading from "@/components/ui/SectionHeading";
 import { Play } from "lucide-react";
 
 const WhyChooseSection = () => (
   <section className="ui-section bg-card">
     <Container>
-      <SectionHeading>Why choose One Day Event?</SectionHeading>
+      <h2 className="mb-[50px] w-full text-center text-[32px] font-black leading-[1.3] text-foreground sm:text-[38px] sm:leading-[52px]">
+        Why choose One Day Event?
+      </h2>
 
       <div className="mx-auto max-w-lg overflow-hidden rounded-2xl bg-primary shadow-lg">
         <div className="relative flex items-center justify-center p-10">
