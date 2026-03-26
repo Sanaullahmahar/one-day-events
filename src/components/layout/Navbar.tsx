@@ -34,20 +34,30 @@ const Navbar = () => {
               onMouseEnter={() => setActiveDropdown(link.dropdownSections ? link.id : null)}
               onMouseLeave={() => setActiveDropdown((current) => (current === link.id ? null : current))}
             >
-              <a
-                href={link.href}
-                className="flex items-center gap-1 py-5 text-sm font-medium text-foreground transition-colors hover:text-primary"
-              >
-                {link.label}
-                {link.dropdownSections ? (
+              {link.dropdownSections ? (
+                <button
+                  type="button"
+                  onClick={() =>
+                    setActiveDropdown((current) => (current === link.id ? null : link.id))
+                  }
+                  className="flex items-center gap-1 py-5 text-sm font-medium text-foreground transition-colors hover:text-primary"
+                >
+                  {link.label}
                   <ChevronDown
                     className={cn(
                       "h-3.5 w-3.5 transition-transform duration-200",
                       activeDropdown === link.id && "rotate-180",
                     )}
                   />
-                ) : null}
-              </a>
+                </button>
+              ) : (
+                <a
+                  href={link.href}
+                  className="flex items-center gap-1 py-5 text-sm font-medium text-foreground transition-colors hover:text-primary"
+                >
+                  {link.label}
+                </a>
+              )}
 
               {link.dropdownSections && activeDropdown === link.id ? (
                 <div

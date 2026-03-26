@@ -47,9 +47,9 @@ export const navLinks: NavLink[] = [
       {
         id: "learn-links",
         items: [
-          { id: "about", label: "About Us", href: "/about" },
+          { id: "about", label: "About Us", href: "/about-us" },
           { id: "faq", label: "FAQ's", href: "/faq" },
-          { id: "blog", label: "Blog", href: "/blog" },
+          { id: "blog", label: "Blog", href: "/blogs" },
           { id: "privacy", label: "Privacy", href: "/privacy" },
         ],
       },

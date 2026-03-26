@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import {
   ChevronDown,
   Facebook,
@@ -25,9 +25,9 @@ const footerLinks = [
     href: "/events",
     dropdownSections: navLinks.find((link) => link.id === "events")?.dropdownSections,
   },
-  { id: "about", label: "About Us", href: "/about" },
+  { id: "about", label: "About Us", href: "/about-us" },
   { id: "faq", label: "FAQ's", href: "/faq" },
-  { id: "blogs", label: "Blogs", href: "/blog" },
+  { id: "blogs", label: "Blogs", href: "/blogs" },
   { id: "privacy", label: "Privacy", href: "/privacy" },
 ];
 
@@ -154,3 +154,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
