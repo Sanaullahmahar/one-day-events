@@ -1,6 +1,6 @@
 import Container from "@/components/layout/Container";
 import FeatureCard from "@/components/ui/FeatureCard";
-import { features } from "@/data/features";
+import { features } from "@/data/marketing/features";
 
 const FeaturesSection = () => (
   <section className="ui-section bg-card">

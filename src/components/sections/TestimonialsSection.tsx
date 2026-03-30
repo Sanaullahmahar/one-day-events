@@ -3,7 +3,7 @@ import Container from "@/components/layout/Container";
 import TestimonialCard from "@/components/ui/TestimonialCard";
 import TestimonialCarouselDots from "@/components/ui/TestimonialCarouselDots";
 import TestimonialModal from "@/components/ui/TestimonialModal";
-import { testimonials } from "@/data/testimonials";
+import { testimonials } from "@/data/marketing/testimonials";
 import type { Testimonial } from "@/types";
 import { Star } from "lucide-react";
 
@@ -35,10 +35,10 @@ const TestimonialsSection = () => {
             Guaranteed Satisfaction
           </h2>
           <div className="flex items-center justify-center gap-2">
-            <span className="text-[40px] font-extrabold leading-none text-primary sm:text-[42px]">5.0</span>
+            <span className="text-[40px] font-extrabold leading-none text-red-600 sm:text-[42px]">5.0</span>
             <div className="flex items-center gap-1.5">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-8 w-8 fill-secondary text-primary sm:h-9 sm:w-9" strokeWidth={2} />
+                <Star key={i} className="h-8 w-8 fill-[#FFD43B] text-[#FF5A1F] sm:h-9 sm:w-9" strokeWidth={2} />
               ))}
             </div>
           </div>

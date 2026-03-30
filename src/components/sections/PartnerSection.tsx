@@ -1,5 +1,5 @@
 import Container from "@/components/layout/Container";
-import { partners } from "@/data/partners";
+import { partners } from "@/data/catalog/partners";
 import PartnerCard from "@/components/ui/PartnerCard";
 
 const PartnerSection = () => (

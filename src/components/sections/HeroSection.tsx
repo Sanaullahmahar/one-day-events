@@ -2,7 +2,7 @@ import Container from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
 import RotatingText from "@/components/ui/RotatingText";
 import { HERO } from "@/lib/constants";
-import { heroRotatingWords } from "@/data/heroWords";
+import { heroRotatingWords } from "@/data/marketing/heroWords";
 import { useNavigate } from "react-router-dom";
 import heroIllustration from "@/assets/hero-illustration.png";
 

@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Container from "@/components/layout/Container";
 import { SITE_NAME, PHONE_NUMBER } from "@/lib/constants";
-import { eventTypes } from "@/data/events";
+import { eventTypes } from "@/data/catalog/events";
 import { CheckCircle, ChevronLeft } from "lucide-react";
 
 const steps = ["Event Type", "Event Details", "Coverage", "Contact", "Review"];

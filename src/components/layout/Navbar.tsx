@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import Container from "./Container";
-import { navLinks } from "@/data/navLinks";
+import { navLinks } from "@/data/navigation/navLinks";
 import { SITE_NAME, SITE_TAGLINE, PHONE_NUMBER } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";

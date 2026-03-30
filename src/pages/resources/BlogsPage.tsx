@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/layout/Container";
-import { blogPosts } from "@/data/blogs";
+import { blogPosts } from "@/data/content/blogs";
 import { Button } from "@/components/ui/button";
 
 const BlogDetailPage = () => {

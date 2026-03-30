@@ -1,6 +1,6 @@
 import Container from "@/components/layout/Container";
 import { GIVING_BACK } from "@/lib/constants";
-import { charities } from "@/data/charities";
+import { charities } from "@/data/marketing/charities";
 import givingBackImage from "@/assets/giving-back.png";
 import { Heart } from "lucide-react";
 

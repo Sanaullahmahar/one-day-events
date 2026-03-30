@@ -29,7 +29,7 @@ const TestimonialModal = ({ open, testimonial, onOpenChange }: TestimonialModalP
               <DialogTitle className="text-[29px] font-medium tracking-[-0.02em] text-foreground">{testimonial.name}</DialogTitle>
               <div className="flex justify-center gap-1 sm:justify-start">
                 {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star key={i} className="h-7 w-7 fill-secondary text-primary" strokeWidth={2} />
+                  <Star key={i} className="h-7 w-7 fill-[#FFD43B] text-[#FF5A1F]" strokeWidth={2} />
                 ))}
               </div>
             </div>

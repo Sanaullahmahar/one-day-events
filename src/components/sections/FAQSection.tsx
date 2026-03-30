@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { faqs } from "@/data/faqs";
+import { faqs } from "@/data/content/faqs";
 import { Plus, Minus } from "lucide-react";
 
 const FAQSection = () => {

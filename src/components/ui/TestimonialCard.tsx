@@ -28,7 +28,7 @@ const TestimonialCard = ({ testimonial, onReadMore, isFeatured = false }: Testim
       <h4 className={`${isFeatured ? "text-[24px]" : "text-[20px]"} max-w-[13rem] font-semibold leading-[1.15] tracking-[-0.02em] text-slate-800`}>{testimonial.name}</h4>
       <div className="flex shrink-0 gap-1 pt-0.5">
         {Array.from({ length: testimonial.rating }).map((_, i) => (
-          <Star key={i} className={`${isFeatured ? "h-[17px] w-[17px]" : "h-[15px] w-[15px]"} fill-secondary text-primary`} strokeWidth={2} />
+          <Star key={i} className={`${isFeatured ? "h-[17px] w-[17px]" : "h-[15px] w-[15px]"} fill-[#FFD43B] text-[#FF5A1F]`} strokeWidth={2} />
         ))}
       </div>
     </div>

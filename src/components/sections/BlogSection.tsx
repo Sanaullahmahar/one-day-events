@@ -1,6 +1,6 @@
 import Container from "@/components/layout/Container";
 import BlogCard from "@/components/ui/BlogCard";
-import { blogPosts } from "@/data/blogs";
+import { blogPosts } from "@/data/content/blogs";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 

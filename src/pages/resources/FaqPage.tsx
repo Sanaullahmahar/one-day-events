@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/layout/Container";
-import { faqs, faqCategories } from "@/data/faqs";
+import { faqs, faqCategories } from "@/data/content/faqs";
 import { Plus, Minus } from "lucide-react";
 
 const FaqPage = () => {

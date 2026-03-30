@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { z } from "zod";
+import { CheckCircle, ChevronLeft } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { getPartnerTypeBySlug } from "@/data/partners";
-import { CheckCircle, ChevronLeft } from "lucide-react";
+import type { PartnerTypeConfig } from "@/data/catalog/partners";
 
 const partnerSteps = ["Personal Info", "Business Details", "Confirmation"];
 
@@ -20,9 +20,11 @@ const personalSchema = z.object({
   company: z.string().min(1, "Required").max(100),
 });
 
-const PartnerSignupPage = () => {
-  const { type } = useParams<{ type: string }>();
-  const partner = getPartnerTypeBySlug(type || "");
+interface PartnerSignupTemplateProps {
+  partner: PartnerTypeConfig;
+}
+
+const PartnerSignupTemplate = ({ partner }: PartnerSignupTemplateProps) => {
   const [step, setStep] = useState(0);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [form, setForm] = useState({
@@ -38,35 +40,38 @@ const PartnerSignupPage = () => {
   });
 
   const update = (field: string, value: string) => {
-    setForm((p) => ({ ...p, [field]: value }));
-    setErrors((p) => { const n = { ...p }; delete n[field]; return n; });
+    setForm((previous) => ({ ...previous, [field]: value }));
+    setErrors((previous) => {
+      const next = { ...previous };
+      delete next[field];
+      return next;
+    });
   };
 
   const validate = () => {
-    const errs: Record<string, string> = {};
+    const nextErrors: Record<string, string> = {};
+
     if (step === 0) {
-      const r = personalSchema.safeParse(form);
-      if (!r.success) r.error.errors.forEach((e) => { errs[e.path[0] as string] = e.message; });
+      const result = personalSchema.safeParse(form);
+
+      if (!result.success) {
+        result.error.errors.forEach((error) => {
+          nextErrors[error.path[0] as string] = error.message;
+        });
+      }
     }
-    setErrors(errs);
-    return Object.keys(errs).length === 0;
+
+    setErrors(nextErrors);
+    return Object.keys(nextErrors).length === 0;
   };
 
-  const next = () => { if (validate()) setStep((s) => Math.min(s + 1, partnerSteps.length - 1)); };
-  const back = () => setStep((s) => Math.max(s - 1, 0));
+  const next = () => {
+    if (validate()) {
+      setStep((current) => Math.min(current + 1, partnerSteps.length - 1));
+    }
+  };
 
-  if (!partner) {
-    return (
-      <div className="min-h-screen">
-        <Navbar />
-        <Container className="py-20 text-center">
-          <h1 className="text-3xl font-bold text-foreground">Partner type not found</h1>
-          <Button asChild className="mt-8"><Link to="/">Go Home</Link></Button>
-        </Container>
-        <Footer />
-      </div>
-    );
-  }
+  const back = () => setStep((current) => Math.max(current - 1, 0));
 
   return (
     <div className="min-h-screen bg-background">
@@ -78,26 +83,30 @@ const PartnerSignupPage = () => {
           </h1>
           <p className="mt-4 text-base leading-8 text-muted-foreground">{partner.description}</p>
 
-          {/* Benefits */}
           <div className="mt-8 mb-10 space-y-2">
-            {partner.benefits.map((b, i) => (
-              <div key={i} className="flex items-center gap-2">
+            {partner.benefits.map((benefit) => (
+              <div key={benefit} className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-primary" />
-                <span className="text-sm text-muted-foreground">{b}</span>
+                <span className="text-sm text-muted-foreground">{benefit}</span>
               </div>
             ))}
           </div>
 
-          {/* Step Indicator */}
           <div className="mb-8 flex items-center gap-4">
-            {partnerSteps.map((s, i) => (
-              <div key={s} className="flex items-center gap-2">
-                <div className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold ${
-                  i < step ? "bg-primary text-primary-foreground" : i === step ? "bg-cta text-cta-foreground" : "bg-muted text-muted-foreground"
-                }`}>
-                  {i < step ? <CheckCircle className="h-5 w-5" /> : i + 1}
+            {partnerSteps.map((stepLabel, index) => (
+              <div key={stepLabel} className="flex items-center gap-2">
+                <div
+                  className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold ${
+                    index < step
+                      ? "bg-primary text-primary-foreground"
+                      : index === step
+                        ? "bg-cta text-cta-foreground"
+                        : "bg-muted text-muted-foreground"
+                  }`}
+                >
+                  {index < step ? <CheckCircle className="h-5 w-5" /> : index + 1}
                 </div>
-                <span className="hidden text-sm font-medium text-muted-foreground sm:inline">{s}</span>
+                <span className="hidden text-sm font-medium text-muted-foreground sm:inline">{stepLabel}</span>
               </div>
             ))}
           </div>
@@ -138,15 +147,33 @@ const PartnerSignupPage = () => {
             <div className="space-y-4">
               <div>
                 <Label htmlFor="businessType">Business Type</Label>
-                <Input id="businessType" value={form.businessType} onChange={(e) => update("businessType", e.target.value)} placeholder="Insurance Agency, Event Planning, etc." className="mt-1" />
+                <Input
+                  id="businessType"
+                  value={form.businessType}
+                  onChange={(e) => update("businessType", e.target.value)}
+                  placeholder="Insurance Agency, Event Planning, etc."
+                  className="mt-1"
+                />
               </div>
               <div>
                 <Label htmlFor="yearsInBusiness">Years in Business</Label>
-                <Input id="yearsInBusiness" type="number" value={form.yearsInBusiness} onChange={(e) => update("yearsInBusiness", e.target.value)} className="mt-1" />
+                <Input
+                  id="yearsInBusiness"
+                  type="number"
+                  value={form.yearsInBusiness}
+                  onChange={(e) => update("yearsInBusiness", e.target.value)}
+                  className="mt-1"
+                />
               </div>
               <div>
                 <Label htmlFor="website">Website (optional)</Label>
-                <Input id="website" value={form.website} onChange={(e) => update("website", e.target.value)} placeholder="https://..." className="mt-1" />
+                <Input
+                  id="website"
+                  value={form.website}
+                  onChange={(e) => update("website", e.target.value)}
+                  placeholder="https://..."
+                  className="mt-1"
+                />
               </div>
               <div>
                 <Label htmlFor="notes">Additional Notes</Label>
@@ -180,9 +207,17 @@ const PartnerSignupPage = () => {
           {step < 2 && (
             <div className="mt-10 flex items-center justify-between">
               {step > 0 ? (
-                <Button variant="outline" onClick={back}><ChevronLeft className="mr-1 h-4 w-4" /> Back</Button>
-              ) : <div />}
-              <Button onClick={next} className="bg-cta text-cta-foreground hover:bg-cta/90">Next</Button>
+                <Button variant="outline" onClick={back}>
+                  <ChevronLeft className="mr-1 h-4 w-4" /> Back
+                </Button>
+              ) : (
+                <Button asChild variant="ghost">
+                  <Link to="/">Back Home</Link>
+                </Button>
+              )}
+              <Button onClick={next} className="bg-cta text-cta-foreground hover:bg-cta/90">
+                Next
+              </Button>
             </div>
           )}
         </Container>
@@ -192,4 +227,4 @@ const PartnerSignupPage = () => {
   );
 };
 
-export default PartnerSignupPage;
+export default PartnerSignupTemplate;

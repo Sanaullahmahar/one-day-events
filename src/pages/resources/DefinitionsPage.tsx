@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/layout/Container";
-import { definitions } from "@/data/definitions";
+import { definitions } from "@/data/content/definitions";
 
 const DefinitionsPage = () => {
   const [query, setQuery] = useState("");

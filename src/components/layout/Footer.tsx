@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ChevronDown, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
 import Container from "./Container";
-import { navLinks } from "@/data/navLinks";
+import { navLinks } from "@/data/navigation/navLinks";
 import { COPYRIGHT_YEAR, SITE_NAME } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
