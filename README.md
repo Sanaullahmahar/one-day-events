@@ -12,14 +12,14 @@ This project is a **frontend clone** of the One Day Event landing page with impr
 - Clean and scalable architecture  
 - Reusable components  
 - Dynamic data structure (ready for backend integration)  
-- Custom UI enhancements  
+- Custom UI enhancements
 
 
 ---
 
 ## 🛠️ Tech Stack
 
-- ⚡ Next.js (App Router)  
+- ⚡ Node.js (App Router)  
 - 🔷 TypeScript  
 - 🎨 Tailwind CSS  
 - 🧩 Component-based architecture  
