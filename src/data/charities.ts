@@ -1,4 +1,4 @@
-import { Charity } from "@/types";
+import type { Charity } from "@/types";
 
 export const charities: Charity[] = [
   { id: 1, name: "Tears of Humanity", logo: "" },

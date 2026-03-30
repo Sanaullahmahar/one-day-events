@@ -1,6 +1,8 @@
 export const SITE_NAME = "One Day Event";
 export const SITE_TAGLINE = "JUST ENJOY";
 export const COPYRIGHT_YEAR = 2020;
+export const PHONE_NUMBER = "(866) 508-7446";
+export const EMAIL = "info@onedayevent.com";
 
 export const CONTACT_CTA = {
   heading: "Have questions?",

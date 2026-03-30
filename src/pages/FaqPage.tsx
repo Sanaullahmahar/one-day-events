@@ -1,73 +1,96 @@
-import { useState } from "react";
-import { Plus } from "lucide-react";
+import { useState, useMemo } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/layout/Container";
-import { faqCategories, faqItems } from "@/data/learn";
+import { faqs, faqCategories } from "@/data/faqs";
+import { Plus, Minus } from "lucide-react";
 
 const FaqPage = () => {
   const [query, setQuery] = useState("");
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [openId, setOpenId] = useState<number | null>(null);
 
-  const filtered = faqItems.filter((item) => item.toLowerCase().includes(query.toLowerCase()));
+  const filtered = useMemo(
+    () =>
+      faqs.filter(
+        (f) =>
+          (activeCategory === "all" || f.category === activeCategory) &&
+          (f.question.toLowerCase().includes(query.toLowerCase()) ||
+            f.answer.toLowerCase().includes(query.toLowerCase())),
+      ),
+    [query, activeCategory],
+  );
 
   return (
-    <div className="min-h-screen bg-[#f4f5f7]">
+    <div className="min-h-screen bg-background">
       <Navbar />
       <main>
-        <section className="pt-16 pb-14">
+        <section className="pt-16 pb-10">
           <Container className="max-w-[1030px]">
-            <h1 className="text-center text-[42px] font-extrabold leading-[1.05] tracking-[-0.03em] text-[#1d2c57] md:text-[65px]">
-              Frequently Asked
-              <br />
-              Questions
+            <h1 className="text-center text-[42px] font-extrabold leading-[1.05] tracking-[-0.03em] text-foreground md:text-[65px]">
+              Frequently Asked<br />Questions
             </h1>
-
             <form className="mx-auto mt-14 flex max-w-[750px]" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                className="h-[60px] flex-1 rounded-l-[10px] border border-[#dcdfe7] bg-white px-6 text-base text-[#1d2c57] outline-none"
+                placeholder="Search FAQ's..."
+                className="h-[60px] flex-1 rounded-l-[10px] border border-border bg-card px-6 text-base text-foreground outline-none"
               />
-              <button
-                type="submit"
-                className="h-[60px] w-[180px] rounded-r-[10px] bg-primary text-base font-semibold text-white transition-colors hover:bg-primary/90"
-              >
+              <button type="submit" className="h-[60px] w-[180px] rounded-r-[10px] bg-primary text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
                 Search
               </button>
             </form>
+          </Container>
+        </section>
 
-            <div className="mt-16 grid grid-cols-2 gap-5 md:grid-cols-4">
-              {faqCategories.map((category) => (
-                <article
-                  key={category.id}
-                  className="rounded-[10px] border border-[#eceef4] bg-white px-6 py-8 text-center shadow-[0_4px_10px_rgba(0,0,0,0.06)] md:h-[170px]"
+        {/* Category Tabs */}
+        <section className="pb-4">
+          <Container className="max-w-[750px]">
+            <div className="flex flex-wrap gap-2">
+              {faqCategories.map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveCategory(cat.id)}
+                  className={`rounded-full px-5 py-2 text-sm font-medium transition-colors ${
+                    activeCategory === cat.id
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-muted text-muted-foreground hover:bg-muted/80"
+                  }`}
                 >
-                  <img src={category.icon} alt="" className="mx-auto h-11 w-11 md:mt-1" />
-                  <h3 className="mt-4 text-[23px] font-bold leading-none text-[#172b57]">{category.label}</h3>
-                </article>
-              ))}
-            </div>
-
-            <div className="mt-14 rounded-2xl bg-[#f4f5f7]">
-              {filtered.map((item, index) => (
-                <div
-                  key={`${item}-${index}`}
-                  className="flex items-center gap-4 border-b border-[#e6e8ee] py-8 text-[#172b57]"
-                >
-                  <Plus className="h-6 w-6 shrink-0" strokeWidth={3} />
-                  <p className="text-[20px] font-bold leading-tight md:text-[23px]">{item}</p>
-                </div>
+                  {cat.label}
+                </button>
               ))}
             </div>
           </Container>
         </section>
 
-        <section className="py-20 text-center">
-          <h2 className="text-[23px] font-bold text-[#172b57]">Download FAQs document as PDF</h2>
-          <button className="mt-10 h-12 min-w-[200px] rounded-full bg-primary px-8 text-base font-semibold text-white transition-colors hover:bg-primary/90">
-            Download
-          </button>
+        {/* FAQ List */}
+        <section className="pb-20">
+          <Container className="max-w-[750px]">
+            <div>
+              {filtered.map((faq) => {
+                const isOpen = openId === faq.id;
+                return (
+                  <div key={faq.id} className="border-b border-border">
+                    <button onClick={() => setOpenId(isOpen ? null : faq.id)} className="flex w-full items-center justify-between py-5 text-left">
+                      <span className="pr-4 text-lg font-semibold leading-7 text-foreground">{faq.question}</span>
+                      {isOpen ? <Minus className="h-5 w-5 shrink-0 text-primary" /> : <Plus className="h-5 w-5 shrink-0 text-primary" />}
+                    </button>
+                    <div className={`grid transition-all duration-300 ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
+                      <div className="overflow-hidden">
+                        <div className="pb-5 pr-12 text-sm leading-relaxed text-muted-foreground">{faq.answer}</div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+              {filtered.length === 0 && (
+                <p className="py-10 text-center text-muted-foreground">No questions found matching your search.</p>
+              )}
+            </div>
+          </Container>
         </section>
       </main>
       <Footer />

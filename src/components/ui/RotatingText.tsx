@@ -18,7 +18,6 @@ const RotatingText = ({ words, interval = 3000, className = "" }: RotatingTextPr
         setIsAnimating(false);
       }, 400);
     }, interval);
-
     return () => clearInterval(timer);
   }, [words.length, interval]);
 

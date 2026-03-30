@@ -1,15 +1,10 @@
 import { ClipboardCheck, ShieldCheck, BadgeDollarSign, type LucideIcon } from "lucide-react";
 import type { Feature } from "@/types";
 
-const iconMap: Record<string, LucideIcon> = {
-  ClipboardCheck,
-  ShieldCheck,
-  BadgeDollarSign,
-};
+const iconMap: Record<string, LucideIcon> = { ClipboardCheck, ShieldCheck, BadgeDollarSign };
 
 const FeatureCard = ({ icon, title, description }: Feature) => {
   const Icon = iconMap[icon] ?? ClipboardCheck;
-
   return (
     <div className="group flex flex-col items-center rounded-2xl border border-border bg-card p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
       <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20">
