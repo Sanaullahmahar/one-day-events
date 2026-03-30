@@ -4,11 +4,7 @@ interface TestimonialCarouselDotsProps {
   onSelect: (index: number) => void;
 }
 
-const TestimonialCarouselDots = ({
-  total,
-  activeIndex,
-  onSelect,
-}: TestimonialCarouselDotsProps) => (
+const TestimonialCarouselDots = ({ total, activeIndex, onSelect }: TestimonialCarouselDotsProps) => (
   <div className="mt-10 flex items-center justify-center gap-5">
     {Array.from({ length: total }).map((_, index) => (
       <button
@@ -16,11 +12,8 @@ const TestimonialCarouselDots = ({
         type="button"
         onClick={() => onSelect(index)}
         aria-label={`Go to testimonial page ${index + 1}`}
-        aria-pressed={activeIndex === index}
-        className={`h-3 rounded-full transition-all duration-300 ${
-          activeIndex === index
-            ? "w-3 bg-black/70"
-            : "w-3 bg-black/20 hover:bg-black/35"
+        className={`h-3 w-3 rounded-full transition-all duration-300 ${
+          activeIndex === index ? "bg-foreground/70" : "bg-foreground/20 hover:bg-foreground/35"
         }`}
       />
     ))}

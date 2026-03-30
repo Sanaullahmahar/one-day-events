@@ -26,15 +26,15 @@ const highlights = [
 ];
 
 const AboutUsPage = () => (
-  <div className="min-h-screen bg-[#f4f5f7]">
+  <div className="min-h-screen bg-background">
     <Navbar />
     <main>
       <section className="pt-16 pb-10">
         <Container className="max-w-[1030px]">
-          <h1 className="text-center text-[42px] font-extrabold leading-[1.05] tracking-[-0.03em] text-[#1d2c57] md:text-[65px]">
+          <h1 className="text-center text-[42px] font-extrabold leading-[1.05] tracking-[-0.03em] text-foreground md:text-[65px]">
             About Us
           </h1>
-          <p className="mx-auto mt-8 max-w-[900px] text-center text-base leading-8 text-[#5f6d88]">
+          <p className="mx-auto mt-8 max-w-[900px] text-center text-base leading-8 text-muted-foreground">
             We compare the best event insurance options so you can protect your event confidently and enjoy your day.
           </p>
         </Container>
@@ -46,14 +46,14 @@ const AboutUsPage = () => (
             {highlights.map((item, index) => (
               <article
                 key={item.title}
-                className={`grid items-center gap-10 rounded-[28px] bg-white p-8 shadow-[0_16px_34px_rgba(24,39,75,0.08)] md:grid-cols-2 ${
+                className={`grid items-center gap-10 rounded-[28px] bg-card p-8 shadow-md md:grid-cols-2 ${
                   index % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
                 }`}
               >
                 <img src={item.image} alt={item.title} className="h-[280px] w-full rounded-[22px] object-cover" />
                 <div>
-                  <h2 className="text-[30px] font-extrabold leading-[1.1] text-[#172b57]">{item.title}</h2>
-                  <p className="mt-6 text-base leading-8 text-[#5e6b86]">{item.body}</p>
+                  <h2 className="text-[30px] font-extrabold leading-[1.1] text-foreground">{item.title}</h2>
+                  <p className="mt-6 text-base leading-8 text-muted-foreground">{item.body}</p>
                 </div>
               </article>
             ))}
@@ -62,10 +62,10 @@ const AboutUsPage = () => (
       </section>
 
       <section className="pb-24 text-center">
-        <h2 className="text-[32px] font-bold text-[#172b57]">Ready to protect your event?</h2>
+        <h2 className="text-[32px] font-bold text-foreground">Ready to protect your event?</h2>
         <a
-          href="/"
-          className="mt-8 inline-flex h-12 min-w-[220px] items-center justify-center rounded-full bg-primary px-8 text-base font-semibold text-white transition-colors hover:bg-primary/90"
+          href="/get-quote"
+          className="mt-8 inline-flex h-12 min-w-[220px] items-center justify-center rounded-full bg-cta px-8 text-base font-semibold text-cta-foreground transition-colors hover:bg-cta/90"
         >
           Get Quote
         </a>

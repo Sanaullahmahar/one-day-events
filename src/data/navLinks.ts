@@ -28,7 +28,7 @@ export const navLinks: NavLink[] = [
           { id: "birthday-party", label: "Birthday Party", href: "/events/birthday-party" },
           { id: "conferences", label: "Conferences", href: "/events/conferences" },
           { id: "dj", label: "DJ", href: "/events/dj" },
-          { id: "festival-cover", label: "Festival Insurance", href: "/events/festival-cover" },
+          { id: "festival-cover", label: "Festival Cover", href: "/events/festival-cover" },
           { id: "hip-hop-rap", label: "Hip hop & Rap", href: "/events/hip-hop-rap" },
           { id: "political-event", label: "Political Event", href: "/events/political-event" },
           { id: "retreats", label: "Retreats", href: "/events/retreats" },
@@ -49,6 +49,7 @@ export const navLinks: NavLink[] = [
         items: [
           { id: "about", label: "About Us", href: "/about-us" },
           { id: "faq", label: "FAQ's", href: "/faq" },
+          { id: "definitions", label: "Definitions", href: "/definitions" },
           { id: "blog", label: "Blog", href: "/blogs" },
           { id: "privacy", label: "Privacy", href: "/privacy" },
         ],

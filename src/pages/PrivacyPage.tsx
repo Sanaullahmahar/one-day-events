@@ -1,45 +1,57 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/layout/Container";
-import { privacySections } from "@/data/learn";
+
+const privacySections = [
+  {
+    title: "Information We Collect About You",
+    content: "We collect information you provide directly to us, such as when you request a quote, purchase a policy, create an account, or contact us. This includes your name, email address, phone number, event details, and payment information.",
+  },
+  {
+    title: "How We Use Information",
+    content: "We use the information we collect to provide, maintain, and improve our services, process transactions, send related information, and respond to your comments and questions.",
+  },
+  {
+    title: "How We Share Information",
+    content: "We may share your information with insurance carriers to process your policy, service providers who assist our operations, and as required by law. We do not sell your personal information to third parties.",
+  },
+  {
+    title: "Choices and Rights",
+    content: "You may opt out of receiving promotional communications, request access to your personal data, or request deletion of your information by contacting us.",
+  },
+  {
+    title: "Cookies and Tracking Technologies",
+    content: "We use cookies and similar tracking technologies to collect and track information about your browsing activity to improve our website experience.",
+  },
+  {
+    title: "Security",
+    content: "We take reasonable measures to help protect your personal information from loss, theft, misuse, and unauthorized access, disclosure, alteration, and destruction.",
+  },
+];
 
 const PrivacyPage = () => (
-  <div className="min-h-screen bg-[#f4f5f7]">
+  <div className="min-h-screen bg-background">
     <Navbar />
     <main>
-      <section className="pt-16 pb-16">
-        <Container className="max-w-[1030px]">
-          <h1 className="text-center text-[42px] font-extrabold leading-[1.05] tracking-[-0.03em] text-[#1d2c57] md:text-[65px]">
-            Privacy
+      <section className="pt-16 pb-10">
+        <Container className="max-w-[800px]">
+          <h1 className="text-center text-[42px] font-extrabold leading-[1.05] tracking-[-0.03em] text-foreground md:text-[65px]">
+            Privacy Policy
           </h1>
-
-          <img
-            src="https://www.onedayevent.com/assets/images/privacy.png"
-            alt="Privacy illustration"
-            className="mx-auto mt-10 w-full max-w-[680px]"
-          />
-
-          <h2 className="mt-14 text-[28px] font-bold text-[#172b57]">Jeewanjee Insurance Agency's Privacy Policy</h2>
-          <p className="mt-6 text-sm leading-7 text-[#2f3f63]">
-            OneDayEvent.com is committed to protecting your privacy. Please take a few minutes to read this Privacy
-            Policy so that you understand how we treat your information. This Privacy Policy explains what information
-            we collect from you, how we use such information and with whom it may be shared, and your rights and
-            choices with regard to controlling your information when you visit the Sites and/or use the Services.
+          <p className="mx-auto mt-6 text-center text-sm text-muted-foreground">
+            Last updated: January 1, 2024
           </p>
+        </Container>
+      </section>
 
-          <h3 className="mt-14 text-[24px] font-bold text-[#172b57]">Full privacy statement</h3>
-          <div className="mt-6 space-y-4">
-            {privacySections.map((title, index) => (
-              <details key={title} open={index === 0} className="rounded-xl border border-[#e4e8f1] bg-white">
-                <summary className="cursor-pointer list-none px-6 py-5 text-base font-semibold text-[#1d2c57] md:text-lg">
-                  {title}
-                </summary>
-                <div className="border-t border-[#e4e8f1] px-6 py-5 text-sm leading-7 text-[#51607e]">
-                  We collect and process information required to provide and improve our services, communicate with
-                  you, fulfill contractual obligations, and maintain safety and compliance. For complete legal terms,
-                  please refer to the full policy on the live site.
-                </div>
-              </details>
+      <section className="pb-20">
+        <Container className="max-w-[800px]">
+          <div className="space-y-10">
+            {privacySections.map((section) => (
+              <div key={section.title}>
+                <h2 className="text-xl font-bold text-foreground">{section.title}</h2>
+                <p className="mt-3 text-base leading-8 text-muted-foreground">{section.content}</p>
+              </div>
             ))}
           </div>
         </Container>

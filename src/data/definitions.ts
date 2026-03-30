@@ -1,0 +1,26 @@
+import type { Definition } from "@/types";
+
+export const definitions: Definition[] = [
+  { term: "Additional Insured", definition: "A person or organization added to an insurance policy that is not the named insured but is provided coverage under the policy. Venues, sponsors, and landlords commonly request to be added as additional insureds." },
+  { term: "Aggregate Limit", definition: "The maximum amount an insurance policy will pay for all covered losses during the policy period. For event insurance, this is typically double the per-occurrence limit." },
+  { term: "Bodily Injury", definition: "Physical harm to a person caused by an accident or event. Event insurance covers claims of bodily injury from third parties (guests, attendees) during your event." },
+  { term: "Certificate of Insurance (COI)", definition: "A document issued by an insurance company that verifies the existence of insurance coverage. Venues and vendors typically require a COI before allowing your event to take place." },
+  { term: "Claim", definition: "A formal request to an insurance company for coverage or compensation for a loss or policy event. If someone is injured at your event, they may file a claim against your policy." },
+  { term: "Coverage", definition: "The scope of protection provided by an insurance policy, including the types of losses covered and the dollar limits of the policy." },
+  { term: "Deductible", definition: "The amount the insured must pay out of pocket before the insurance company pays on a claim. Many event insurance policies have zero deductibles." },
+  { term: "Endorsement", definition: "A written amendment to an insurance policy that modifies the terms and conditions of coverage. Additional insured endorsements are common in event insurance." },
+  { term: "Event Cancellation Insurance", definition: "Coverage that reimburses non-recoverable event expenses if your event must be canceled or postponed due to covered reasons like severe weather, venue damage, or vendor no-shows." },
+  { term: "General Liability", definition: "Insurance coverage that protects against claims of bodily injury, property damage, and personal/advertising injury to third parties. This is the primary coverage in event insurance policies." },
+  { term: "Host Liquor Liability", definition: "Coverage for the event host when alcohol is served but not sold at an event. This is different from liquor liability, which covers events where alcohol is sold." },
+  { term: "Indemnify", definition: "To compensate someone for harm or loss. Insurance policies indemnify the policyholder by paying for covered claims up to the policy limits." },
+  { term: "Liability", definition: "Legal responsibility for one's actions or failure to act. Event insurance protects you from financial liability when third parties make claims against you." },
+  { term: "Liquor Liability", definition: "Insurance coverage that protects against claims arising from the serving, selling, or distribution of alcohol at an event. Many venues require this coverage if alcohol will be present." },
+  { term: "Named Insured", definition: "The person or organization specifically named on the insurance policy as the policyholder. For event insurance, this is typically the event organizer or host." },
+  { term: "Per Occurrence Limit", definition: "The maximum amount an insurance policy will pay for a single claim or incident. Common per-occurrence limits for event insurance are $1,000,000 or $2,000,000." },
+  { term: "Policy Period", definition: "The time frame during which an insurance policy provides coverage. For event insurance, this typically covers the event date(s) plus setup and teardown." },
+  { term: "Premium", definition: "The amount paid to purchase an insurance policy. Event insurance premiums are based on factors like event type, guest count, coverage limits, and optional add-ons." },
+  { term: "Property Damage", definition: "Physical damage to tangible property caused by an accident or event. Event insurance covers claims of property damage to third-party property (like a venue)." },
+  { term: "Third Party", definition: "A person or entity other than the insured. In event insurance, third parties include guests, attendees, vendors, and bystanders who may make claims." },
+  { term: "Underwriter", definition: "The insurance professional who evaluates and assumes the risk of insuring an event. Underwriters determine coverage terms, conditions, and pricing." },
+  { term: "Waiver", definition: "A document signed by event participants acknowledging and accepting certain risks. Waivers supplement but do not replace the need for event insurance." },
+];
