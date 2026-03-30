@@ -5,7 +5,7 @@ interface TestimonialCarouselDotsProps {
 }
 
 const TestimonialCarouselDots = ({ total, activeIndex, onSelect }: TestimonialCarouselDotsProps) => (
-  <div className="mt-10 flex items-center justify-center gap-5">
+  <div className="mt-12 flex items-center justify-center gap-4">
     {Array.from({ length: total }).map((_, index) => (
       <button
         key={index}
@@ -13,7 +13,7 @@ const TestimonialCarouselDots = ({ total, activeIndex, onSelect }: TestimonialCa
         onClick={() => onSelect(index)}
         aria-label={`Go to testimonial page ${index + 1}`}
         className={`h-3 w-3 rounded-full transition-all duration-300 ${
-          activeIndex === index ? "bg-foreground/70" : "bg-foreground/20 hover:bg-foreground/35"
+          activeIndex === index ? "bg-slate-700" : "bg-slate-300 hover:bg-slate-400"
         }`}
       />
     ))}

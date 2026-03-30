@@ -48,18 +48,27 @@ const Footer = () => {
                 onMouseEnter={() => setActiveDropdown(link.dropdownSections ? link.id : null)}
                 onMouseLeave={() => setActiveDropdown((c) => (c === link.id ? null : c))}
               >
-                <Link
-                  to={link.href}
-                  className="inline-flex items-center gap-1 text-[16px] font-medium text-foreground transition-colors hover:text-primary"
-                >
-                  {link.label}
-                  {link.dropdownSections ? <ChevronDown className="h-4 w-4" /> : null}
-                </Link>
+                {link.dropdownSections ? (
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-1 text-[16px] font-medium text-foreground transition-colors hover:text-primary"
+                  >
+                    {link.label}
+                    <ChevronDown className="h-4 w-4" />
+                  </button>
+                ) : (
+                  <Link
+                    to={link.href}
+                    className="inline-flex items-center gap-1 text-[16px] font-medium text-foreground transition-colors hover:text-primary"
+                  >
+                    {link.label}
+                  </Link>
+                )}
 
                 {link.dropdownSections && activeDropdown === link.id && (
                   <div
                     className={cn(
-                      "absolute bottom-full left-0 z-40 mb-5 rounded-[22px] border border-border bg-white p-5 shadow-[0_20px_60px_rgba(15,23,42,0.12)]",
+                      "absolute bottom-full left-0 z-40 mb-5 rounded-[22px] border border-border bg-white p-5 shadow-[0_20px_60px_rgba(15,23,42,0.12)] before:absolute before:left-0 before:right-0 before:top-full before:h-5 before:content-['']",
                       link.id === "events" ? "w-[min(90vw,800px)]" : "w-64",
                     )}
                   >
@@ -75,6 +84,7 @@ const Footer = () => {
                             <Link
                               key={item.id}
                               to={item.href}
+                              onClick={() => setActiveDropdown(null)}
                               className="block rounded-xl px-4 py-2 text-[16px] text-foreground transition-colors hover:bg-accent hover:text-primary"
                             >
                               {item.label}

@@ -1,6 +1,6 @@
 import { Star } from "lucide-react";
 import type { Testimonial } from "@/types";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 
 interface TestimonialModalProps {
@@ -18,6 +18,7 @@ const TestimonialModal = ({ open, testimonial, onOpenChange }: TestimonialModalP
         <>
           <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
             <Avatar className="h-[108px] w-[108px] border-4 border-card bg-card shadow-xl">
+              <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
               <AvatarFallback className="bg-primary text-2xl font-semibold text-primary-foreground">
                 {getInitials(testimonial.name)}
               </AvatarFallback>
@@ -28,7 +29,7 @@ const TestimonialModal = ({ open, testimonial, onOpenChange }: TestimonialModalP
               <DialogTitle className="text-[29px] font-medium tracking-[-0.02em] text-foreground">{testimonial.name}</DialogTitle>
               <div className="flex justify-center gap-1 sm:justify-start">
                 {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star key={i} className="h-7 w-7 fill-yellow-400 text-orange-500" strokeWidth={2} />
+                  <Star key={i} className="h-7 w-7 fill-secondary text-primary" strokeWidth={2} />
                 ))}
               </div>
             </div>

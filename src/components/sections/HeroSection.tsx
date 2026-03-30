@@ -26,9 +26,9 @@ const HeroSection = () => {
 
       <div className="absolute bottom-0 left-0 right-0 z-0">
         <svg viewBox="0 0 1440 260" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" preserveAspectRatio="none">
-          <path d="M0 100C180 160 360 200 540 190C720 180 900 130 1080 110C1200 96 1340 100 1440 110V260H0V100Z" fill="hsl(218, 85%, 30%)" fillOpacity="0.3" />
-          <path d="M0 140C200 190 400 220 600 200C800 180 1000 120 1200 130C1320 136 1400 150 1440 160V260H0V140Z" fill="hsl(218, 85%, 30%)" fillOpacity="0.6" />
-          <path d="M0 180C240 220 480 240 720 220C960 200 1200 160 1440 180V260H0V180Z" fill="hsl(213, 74%, 52%)" />
+          <path d="M0 100C180 160 360 200 540 190C720 180 900 130 1080 110C1200 96 1340 100 1440 110V260H0V100Z" fill="hsl(var(--primary))" fillOpacity="0.3" />
+          <path d="M0 140C200 190 400 220 600 200C800 180 1000 120 1200 130C1320 136 1400 150 1440 160V260H0V140Z" fill="hsl(var(--primary))" fillOpacity="0.6" />
+          <path d="M0 180C240 220 480 240 720 220C960 200 1200 160 1440 180V260H0V180Z" fill="hsl(var(--primary))" />
         </svg>
       </div>
     </section>

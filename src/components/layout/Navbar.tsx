@@ -17,9 +17,11 @@ const Navbar = () => {
     <header className="sticky top-0 z-50 border-b border-border bg-card shadow-sm">
       <Container className="flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold text-lg">
-            OD
-          </div>
+          <img
+            src="/favicon.ico"
+            alt={`${SITE_NAME} logo`}
+            className="h-11 w-11 rounded-full object-cover"
+          />
           <div className="leading-tight">
             <span className="text-sm font-bold text-foreground">{SITE_NAME.toUpperCase()}</span>
             <span className="block text-[10px] tracking-widest text-muted-foreground">{SITE_TAGLINE}</span>

@@ -51,9 +51,9 @@ const EventPage = () => {
           {/* Wave */}
           <div className="mt-12">
             <svg viewBox="0 0 1440 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" preserveAspectRatio="none">
-              <path d="M0 80C180 140 360 160 540 150C720 140 900 100 1080 90C1200 82 1340 90 1440 100V200H0V80Z" fill="hsl(218, 85%, 30%)" fillOpacity="0.3" />
-              <path d="M0 120C200 160 400 180 600 170C800 160 1000 120 1200 130C1320 136 1400 150 1440 160V200H0V120Z" fill="hsl(218, 85%, 30%)" fillOpacity="0.6" />
-              <path d="M0 160C240 180 480 190 720 180C960 170 1200 150 1440 160V200H0V160Z" fill="hsl(213, 74%, 52%)" />
+              <path d="M0 80C180 140 360 160 540 150C720 140 900 100 1080 90C1200 82 1340 90 1440 100V200H0V80Z" fill="hsl(var(--primary))" fillOpacity="0.3" />
+              <path d="M0 120C200 160 400 180 600 170C800 160 1000 120 1200 130C1320 136 1400 150 1440 160V200H0V120Z" fill="hsl(var(--primary))" fillOpacity="0.6" />
+              <path d="M0 160C240 180 480 190 720 180C960 170 1200 150 1440 160V200H0V160Z" fill="hsl(var(--primary))" />
             </svg>
           </div>
         </section>
